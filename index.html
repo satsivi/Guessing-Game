@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Guessing Game</title>
+
+<!-- Bootstrap and CSS here-->
+<link rel="stylesheet" type "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+
+
+ <link rel = "stylesheet"
+   type = "text/css"
+   href = "style.css" />
+</head>
+
+<body>
+
+  <div class ='container-fluid center' id='container'>
+    <div id='header'>
+      <h4 id='title'>Guessing Game</h4>
+      <h5 id='subtitle'>Guess a number between 1-100!</h5>
+    </div>
+
+    <div id='parent-input' class='center'>
+        <input id='guess-input' class='center' type='number' maxlength='3' autofocus=autofocus placeholder="#">
+        <button class='btn btn-default center' id='guess-button'>
+
+<i class="fa fa-chevron-right" aria-hidden="true"></i>
+</button>
+    </div>
+
+    <div id='guess-list'>
+      <ul>
+        <li class='guess'>-</li>
+        <li class='guess'>-</li>
+        <li class='guess'>-</li>
+        <li class='guess'>-</li>
+        <li class='guess'>-</li>
+    </div>
+
+    <div id='hint-reset' class='btn-group'>
+      <button class='btn btn-info'>Hint</button>
+      <button class='btn btn-warning'>Reset</button>
+    </div>
+
+  </div>
+
+  <div id='footer' class='center row'>
+    <div class='col-sm-4'><img src = "fa-logo@2x.png"></div>
+    <div class='col-sm-4' id='name'><span><h5>Mimi Zhao 2017.</h5></span></div>
+    <div class='col-sm-4'><img src = "grace_hopper_academy.png"></div>
+  </div>
+</body>
+
+</html>
