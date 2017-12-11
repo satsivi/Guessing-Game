@@ -24,7 +24,6 @@ h5{
   color: #be9b7b;
 }
 
-
 .btn-default{
   background-color: #fff4e6 !important;
   color: #be9b7b !important;
@@ -39,6 +38,11 @@ h5{
   text-align: center;
 }
 
+.row{
+  padding: 0;
+  margin: 0;
+}
+
 #header {
   text-align: center;
   font-family: 'Patrick Hand', cursive;
@@ -50,10 +54,11 @@ h5{
 }
 
 #container {
-  margin: auto;
-  padding: auto;
-  max-width: 500px;
-  min-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 500px;
+  height: 600px;
   border-radius: 10px;
   background-color:rgba(255, 255, 255, 0.75);
 }
@@ -78,10 +83,8 @@ h5{
 
 #guess-input{
   font-size: 50px;
-  max-width: 160px;
-  min-width: 160px;
-  max-height: 160px;
-  min-height: 160px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
 }
 
@@ -97,6 +100,10 @@ h5{
   left: 50px;
 }
 
+#guessList{
+  padding-top: 50px;
+}
+
 #footer{
   width: 100%;
   background-color:rgba(255, 255, 255, 0.8);
@@ -107,3 +114,4 @@ h5{
 #name{
   padding: 1% 0
 }
+
