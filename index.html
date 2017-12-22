@@ -7,7 +7,8 @@
 <link rel="stylesheet" type "text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src='GuessingGame.js'></script>
 
  <link rel = "stylesheet"
    type = "text/css"
@@ -18,8 +19,8 @@
 
   <div class ='container-fluid center' id='container'>
     <div id='header'>
-      <h4 id='title'>Guessing Game</h4>
-      <h5 id='subtitle'>Guess a number between 1-100!</h5>
+      <h2 id='title'>Guessing Game</h2>
+      <h3 id='subtitle'>Guess a number between 1-100!</h3>
     </div>
 
     <div id='parent-input' class='center'>
@@ -40,8 +41,8 @@
     </div>
 
     <div id='hint-reset' class='btn-group'>
-      <button class='btn btn-info'>Hint</button>
-      <button class='btn btn-warning'>Reset</button>
+      <button class='btn btn-info hint' id='hintBtn'>Hint</button>
+      <button class='btn btn-warning reset'>Reset</button>
     </div>
 
   </div>

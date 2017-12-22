@@ -1,13 +1,3 @@
- // - Game
- // - Game.prototype.playersGuessSubmission
- // - Game.prototype.checkGuess
- // - Game.prototype.difference
- // - Game.prototype.isLower
- // - Game.prototype.provideHint
- // - generateWinningNumber
- // - newGame
- // - shuffle
-
  function generateWinningNumber(){
   return Math.floor(Math.random() * (100)) + 1;
  }
@@ -52,17 +42,26 @@ Game.prototype.playersGuessSubmission = function(g){
 }
 
 Game.prototype.checkGuess = function(){
+  if(this.pastGuesses.length >= 5){
+    $('#subtitle').text("Press Reset to play again!");
+    $('#hintBtn').attr('disabled', true);
+    $('#guess-button').attr('disabled', true);
+    return "You Lose.";
+  }
   if(this.playersGuess === this.winningNumber){
     return "You Win!";
   }else if(this.pastGuesses.indexOf(this.playersGuess) > -1){
     return "You have already guessed that number.";
   }else{
     this.pastGuesses.push(this.playersGuess);
+    $('#guessList li:nth-child('+ this.pastGuesses.length +')').text(this.playersGuess);
+  }
+  if(this.isLower()){
+    $('#subtitle').text("Guess higher!");
+    }else{
+      $('#subtitle').text("Guess lower!");
   }
 
-  if(this.pastGuesses.length === 5){
-    return "You Lose.";
-  }
 
   var guessDiff = this.difference();
 
@@ -88,3 +87,39 @@ Game.prototype.provideHint = function(){
   }
   return shuffle(hArr);
 }
+
+function guessMaker(gameInst){
+  var guess = +$('#guess-input').val();
+  var str = "";
+  $('#guess-input').val("");
+  $('#title').text(gameInst.playersGuessSubmission(guess));
+}
+
+$(document).ready(function(){
+  var game = newGame();
+
+  $("#guess-button").on('click', function(){
+    guessMaker(game);
+  });
+
+  $('#guess-input').on('keydown', function(e){
+    var key = e.which;
+    if(key === 13){
+      guessMaker(game);
+    }
+  });
+
+  $('.reset').on('click', function(){
+    game = newGame();
+    $('#title').text('Guessing Game');
+    $('#subtitle').text('Guess a number between 1-100!')
+    $('.guess').text('-');
+    $('#hintBtn, #guess-button').attr('disabled', false);
+  });
+
+  $('#hintBtn').on('click', function(){
+    var hints = game.provideHint().join(', ');
+    $('#title').text("The answer is one of the following: " + hints);
+    $(this).attr('disabled', true);
+  })
+});
