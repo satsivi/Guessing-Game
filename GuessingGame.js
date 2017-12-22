@@ -42,7 +42,7 @@ Game.prototype.playersGuessSubmission = function(g){
 }
 
 Game.prototype.checkGuess = function(){
-  if(this.pastGuesses.length >= 5){
+  if(this.pastGuesses.length > 5){
     $('#subtitle').text("Press Reset to play again!");
     $('#hintBtn').attr('disabled', true);
     $('#guess-button').attr('disabled', true);
