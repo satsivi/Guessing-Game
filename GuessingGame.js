@@ -42,12 +42,6 @@ Game.prototype.playersGuessSubmission = function(g){
 }
 
 Game.prototype.checkGuess = function(){
-  if(this.pastGuesses.length > 5){
-    $('#subtitle').text("Press Reset to play again!");
-    $('#hintBtn').attr('disabled', true);
-    $('#guess-button').attr('disabled', true);
-    return "You Lose.";
-  }
   if(this.playersGuess === this.winningNumber){
     return "You Win!";
   }else if(this.pastGuesses.indexOf(this.playersGuess) > -1){
@@ -55,13 +49,18 @@ Game.prototype.checkGuess = function(){
   }else{
     this.pastGuesses.push(this.playersGuess);
     $('#guessList li:nth-child('+ this.pastGuesses.length +')').text(this.playersGuess);
+    if(this.pastGuesses.length === 5){
+      $('#subtitle').text("Press Reset to play again!");
+      $('#hintBtn').attr('disabled', true);
+      $('#guess-button').attr('disabled', true);
+      return "You Lose.";
+    }
   }
   if(this.isLower()){
     $('#subtitle').text("Guess higher!");
     }else{
       $('#subtitle').text("Guess lower!");
   }
-
 
   var guessDiff = this.difference();
 
